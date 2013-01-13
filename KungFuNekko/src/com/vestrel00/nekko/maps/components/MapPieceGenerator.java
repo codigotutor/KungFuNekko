@@ -114,8 +114,6 @@ public class MapPieceGenerator {
 		 piece.regionXCoords[15] = 288.0f;
 		 piece.regionYCoords[15] = 128.0f;
 		
-		
-		
 		piece.translate(offsetX, offsetY);
 		return piece;
 	}

@@ -28,7 +28,7 @@ public class Location implements Updatable {
 		speed = new Speed(maxXSpeed, maxYSpeed);
 		rect = new Rectangle();
 		//todo set to false;
-		onPlatform = true;
+		onPlatform = false;
 		onSlope = false;
 	}
 	

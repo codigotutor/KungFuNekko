@@ -87,7 +87,7 @@ public class KFNekko implements ApplicationListener {
 	}
 
 	private void initVars() {
-		worldColor = new Color(0.7f, 0.7f, 0.7f, 1.0f);
+		worldColor = new Color(0.7f, 0.7f, 0.0f, 1.0f);
 		targetWorldColor = new Color(worldColor);
 		colorSpeed = 0.01f;
 	}
@@ -151,6 +151,8 @@ public class KFNekko implements ApplicationListener {
 			
 			//DRAW
 			batch.setProjectionMatrix(camera.camera.combined);
+			batch.setColor(Color.WHITE);
+			
 			batch.setColor(worldColor);
 			batch.begin();
 			for(int i=0; i<drawables.size; i++)
@@ -196,6 +198,23 @@ public class KFNekko implements ApplicationListener {
 		 System.gc();	
 		}
 	}
+	
+	
+	public static void bumpWC(float r, float g, float b){
+		worldColor.r += r;
+		worldColor.g += g;
+		worldColor.b += b;
+		
+		//clip
+		if(worldColor.r > 1.0f)
+		   worldColor.r = 1.0f;
+		if(worldColor.g > 1.0f)
+		   worldColor.g = 1.0f;
+		if(worldColor.b > 1.0f)
+		   worldColor.b = 1.0f;
+			
+	}
+	
 
 	/// /////////////////7
 	@Override

@@ -6,10 +6,12 @@ import com.vestrel00.nekko.interf.Drawable;
 import com.vestrel00.nekko.interf.Updatable;
 import com.vestrel00.nekko.maps.components.MapPieceGenerator;
 import com.vestrel00.nekko.maps.components.MapSection;
+import com.vestrel00.nekko.maps.components.Platform;
 
 public class Map implements Updatable, Drawable{
 
 	private Array<MapSection> sections;
+	public Platform platform;
 	public float width, height;
 	
 	public Map(){
@@ -22,6 +24,8 @@ public class Map implements Updatable, Drawable{
 		section.pieces.add(MapPieceGenerator
 				.getPiece(MapPieceGenerator.BRIDGE_1, 512.0f, 0.0f));
 		sections.add(section);
+		
+		platform = new Platform(sections);
 		
 		width = sections.get(sections.size - 1).rect.x
 				+ sections.get(sections.size - 1).rect.width;
